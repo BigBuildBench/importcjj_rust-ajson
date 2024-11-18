@@ -1,0 +1,42 @@
+[package]
+name = "ajson"
+edition = "2018"
+version = "0.3.1"
+authors = ["importcjj <importcjj@gmail.com>"]
+license = "MIT"
+description = "JSON Parser for Rust - Get JSON values quickly"
+keywords = ["json", "json-parser", "gjson", "ajson"]
+categories = ["encoding"]
+readme = "README.md"
+documentation = "https://docs.rs/ajson/latest/ajson/"
+repository = "https://github.com/importcjj/rust-ajson"
+include = ["Cargo.toml", "src/**/*.rs", "README.md", "LICENSE-MIT"]
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+autobenches = false
+
+[lib]
+bench = false
+
+[features]
+default = []
+wild = ["regex"]
+
+[dependencies]
+
+[dev-dependencies]
+criterion = "0.2"
+json = "0.11.13"
+serde_json = "1.0"
+serde = { version = "1.0.98", features = ["derive"] }
+nom = "5"
+gjson = "0.8.1"
+
+[[bench]]
+name = "ajson_benchmark"
+path = "benches/ajson_benchmark.rs"
+harness = false
+
+[[bench]]
+name = "traversing_benchmark"
+path = "benches/traversing.rs"
+harness = false
